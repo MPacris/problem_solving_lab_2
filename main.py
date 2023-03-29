@@ -61,6 +61,55 @@ def verifying_palindrome(word, reversed_word):
 verifying_palindrome(word, reversed_word)
 
 
+#Bonus Challenge
+#Task 4 : Compress a string of characters
+#For example, an input of "aaabbbbbccccaacccbbbaaabbbaaa" would compress to "3a5b4c2a3c3b3a3b3a"
+#counts the letters and puts it as and puts it in front, before going to next letter
+
+#create a string for the compressed
+
+
+oringial_string = 'mmeeyynnaarrdddd'
+
+def compress_string(original_string):
+    count_of_letters = 1
+    compressed_string = ""
+    last_index = len(original_string) - 1
+ 
+
+
+    for index in range(len(original_string)):
+        
+#taking each letter and counting if there are repeats as it passes throught the string
+ 
+ #added this if to account for last letter not comparing to [index+1]-  
+ #taking 2nd to last indext and comparing it to last then adding it and ending loop
+        if index == last_index - 1:
+            if original_string[last_index -1] == original_string[last_index]:
+               count_of_letters += 1
+               compressed_string = compressed_string + str(count_of_letters) + original_string[index]
+             
+
+            elif oringial_string[last_index - 1] != oringial_string[last_index]:
+                count_of_letters += 1
+                compressed_string = compressed_string + str(count_of_letters) + original_string[index]
+#put the return and print here to end the loop to avoid erroring out as index passes through stru=ing to avoid comparing last index
+
+            print(compressed_string)
+            return(compressed_string)
+
+                
+        elif original_string[index] == oringial_string[index + 1]:
+            count_of_letters += 1               
+
+#if letter is not repeated, only adds the count and the letter as compressed string
+        else:
+            compressed_string = compressed_string + str(count_of_letters) + original_string[index]
+            count_of_letters = 1
+
+compress_string(oringial_string)
+
+
 
 
 

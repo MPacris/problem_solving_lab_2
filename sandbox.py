@@ -30,27 +30,42 @@
 
 
 
-oringial_string = "mmmmmeeeyyynnnnaaaarrrrdddddd"
+oringial_string = 'mmeeyynnaarrdddd'
 
 def compress_string(original_string):
-    count_of_letters = 0
+    count_of_letters = 1
     compressed_string = ""
-   
-    for index in range(original_string):
+    last_index = len(original_string) - 1
+ 
 
-#taking each letter and counting to see if there are repeats, if no multiple then 
-        if original_string[index - 1] == oringial_string[index]:
-            count_of_letters += 1
+
+    for index in range(len(original_string)):
+        
+#taking each letter and counting if there are repeats as it passes throught the string
+        if index == last_index - 1:
+            if original_string[last_index -1] == original_string[last_index]:
+               count_of_letters += 1
+               compressed_string = compressed_string + str(count_of_letters) + original_string[index]
+             
+
+            elif oringial_string[last_index - 1] != oringial_string[last_index]:
+                count_of_letters += 1
+                compressed_string = compressed_string + str(count_of_letters) + original_string[index]
+#put the return and print here to end the loop to avoid erroring out as index passes through stru=ing to avoid comparing last index
+
+            print(compressed_string)
+            return(compressed_string)
+
+                
+        elif original_string[index] == oringial_string[index + 1]:
+            count_of_letters += 1               
+
+#if letter is not repeated, only adds the count and the letter as compressed string
         else:
-            compressed_string = compressed_string + compress_string[index - 1] 
-
-
-
-    
-    return(compressed_string)
+            compressed_string = compressed_string + str(count_of_letters) + original_string[index]
+            count_of_letters = 1
 
 compress_string(oringial_string)
-print(compressed)
 
 
 
