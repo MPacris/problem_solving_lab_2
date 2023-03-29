@@ -15,30 +15,42 @@
 #A “palindrome” is a word, phrase, or sequence that reads the same backward as forward i.e. madam	
 #Write code that takes a user input and checks to see if it is a Palindrome and reports the result
 #thoughts:  take a word, flip it and reverse it and then compare to see if it matches original.  if it matches it is a pallindrome
-word = input('provide a word   ')
-
-def reverse_word(word):
-    reversed_word = ""     
-    last_index = len(word) - 1
-    for index in range(last_index, -1, -1):
-        reversed_word += word[index]
-        
-    return(reversed_word)
-    
-reversed_word = reverse_word(word)
-
-
-def verifying_palindrome(word, reversed_word):
-    confirmation = word == reversed_word
-    if confirmation == True:
-            print('Palindrome')
-    else:
-         print("not Palindrome")
-
-verifying_palindrome(word, reversed_word)            
+   
 
 
 #Bonus Challenge
 #Task 4 : Compress a string of characters
 #For example, an input of "aaabbbbbccccaacccbbbaaabbbaaa" would compress to "3a5b4c2a3c3b3a3b3a"
-#counts the letters and puts it as and puts it in front,
+#counts the letters and puts it as and puts it in front, before going to next letter
+
+#create a string for the compressed
+
+
+
+
+
+
+oringial_string = "mmmmmeeeyyynnnnaaaarrrrdddddd"
+
+def compress_string(original_string):
+    count_of_letters = 0
+    compressed_string = ""
+   
+    for index in range(original_string):
+
+#taking each letter and counting to see if there are repeats, if no multiple then 
+        if original_string[index - 1] == oringial_string[index]:
+            count_of_letters += 1
+        else:
+            compressed_string = compressed_string + compress_string[index - 1] 
+
+
+
+    
+    return(compressed_string)
+
+compress_string(oringial_string)
+print(compressed)
+
+
+
